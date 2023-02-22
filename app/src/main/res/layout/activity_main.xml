@@ -66,7 +66,7 @@ tools:context=".MainActivity">
 </ScrollView>
 
     <FrameLayout
-        android:id="@+id/fragment"
+        android:id="@+id/fragment_container"
         android:name="com.example.fragmentexample1updated.SimpleFragment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

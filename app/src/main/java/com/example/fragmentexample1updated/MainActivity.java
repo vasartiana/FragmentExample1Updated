@@ -34,6 +34,24 @@ public class MainActivity extends AppCompatActivity {
     public void displayFragment(){
         SimpleFragment simpleFragment = SimpleFragment.newInstance();
         FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction()
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        fragmentTransaction.add(R.id.fragment_container,
+                simpleFragment).addToBackStack(null).commit();
+        mButton.setText("Close");
+        isFragmentDisplayed = true;
+    }
+
+    public void closeFragment(){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        SimpleFragment simpleFragment = (SimpleFragment) fragmentManager
+                .findFragmentById(R.id.fragment_container);
+        if (simpleFragment != null){
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.remove(simpleFragment).commit();
+        }
+
+        mButton.setText("Open");
+        isFragmentDisplayed = false;
     }
 }
